@@ -1,186 +1,174 @@
-Perfect Summary: Trust and Credibility in Online Social Media (40-min
-Lecture) Lecture Context This is Week 2.2 of the NPTEL “Privacy and
-Security in Online Social Media” course, focusing specifically on trust
-and credibility analysis.​
+# Trust and Credibility in Online Social Media  
+**Week 2.2 – Privacy and Security in Online Social Media (NPTEL Course)**  
 
-The Core Problem: Rumors vs. Truth The lecture opens with a critical
-finding from the Boston Marathon blast analysis: rumors spread
-significantly faster than truth on social media. Data showed rumors
-peaked within 2 hours, while legitimate information took approximately 9
-hours to emerge. This time gap creates massive challenges for crisis
-management and public safety.​
+This lecture (40 minutes) focuses on **trust and credibility analysis** in online social media.
 
-Real-World Case Studies Hurricane Sandy (October 2012) Data Scale:
-1,782,526 tweets collected from ~1 million unique users​
+---
 
-Problem: Multiple fake images circulated, including fabricated shark
-photos and manipulated disaster scenes​
+## 🧩 The Core Problem: Rumors vs. Truth
 
-Ground Truth: The Guardian newspaper provided verified fake/real image
-annotations​
+- **Observation:** Rumors spread significantly faster than truth on social media.  
+- **Case:** *Boston Marathon blast*  
+  - Rumors peaked within **2 hours**, while truth took **~9 hours** to emerge.  
+  - This time gap causes major challenges for **crisis management** and **public safety**.
 
-Key Insight: Approximately 600,000 tweets contained URLs, showing how
-misinformation spreads through linked content​
+---
 
-Boston Marathon Blast (April 2013) Massive Dataset: 7.8 million tweets
-from 3.6 million users​
+## 🌪️ Real-World Case Studies
 
-Notable Fake Content:
+### **Hurricane Sandy (October 2012)**
+- **Data Scale:** 1,782,526 tweets from ~1 million users  
+- **Problem:** Circulation of multiple fake images (e.g., shark photos, manipulated disaster scenes)  
+- **Ground Truth:** *The Guardian* verified fake/real images  
+- **Key Insight:** ~600,000 tweets contained URLs → misinformation spreads via links  
 
-False claim about 8-year-old boy dying (50,000+ retweets)​
+### **Boston Marathon Blast (April 2013)**
+- **Dataset:** 7.8 million tweets from 3.6 million users  
+- **Fake Content Examples:**
+  - False claim about an 8-year-old boy dying (50,000+ retweets)  
+  - Scam tweets promising “$1 donation per retweet”  
+- **Account Analysis:**  
+  - 32,000 new accounts created  
+  - 90% later suspended or deleted  
+- **Network Pattern:** Fake content creators formed tightly connected, closed communities  
 
-Scam tweets promising $1 donations per retweet​
+---
 
-Account Analysis: 32,000 new accounts created during the event; 90% were
-later suspended or deleted​
+## 🔬 Research Methodology Framework
 
-Network Pattern: Fake content creators formed tightly connected, closed
-communities​
+A systematic **five-step process** for social media analysis:
 
-Research Methodology Framework The lecture presents a systematic
-five-step approach applicable to any social media analysis:​
+1. **Data Collection:** From Twitter/social platforms using APIs  
+2. **Data Characterization:** Analyze volume, timeline, geographic distribution  
+3. **Feature Extraction:** From posts and user profiles  
+4. **Model Building:** Using machine learning algorithms  
+5. **Evaluation:** With metrics like **Accuracy** and **NDCG (Normalized Discounted Cumulative Gain)**  
 
-Data Collection from Twitter/social platforms using APIs
+---
 
-Data Characterization (understanding volume, timeline, geographic
-distribution)
+## 🧭 Who-When-Where-What-Why-How Analysis
 
-Feature Extraction from posts and user profiles
+| Dimension | Description |
+|------------|-------------|
+| **Who** | User profiles, follower networks, account age |
+| **When** | Temporal patterns, posting timelines |
+| **Where** | Geographic data (1% of tweets are geo-tagged) |
+| **What** | Content analysis, sentiment, URLs |
+| **Why/How** | Inferred from posting behavior and patterns |
 
-Model Building using machine learning techniques
+---
 
-Evaluation using metrics like accuracy and NDCG (Normalized Discounted
-Cumulative Gain)​
+## ⚙️ Feature Engineering: The Foundation
 
-Who-When-Where-What-Why-How Analysis The lecture emphasizes analyzing
-social media events through six critical dimensions:​
+### **User (Profile-Based) Features**
+- Number of followers and friends  
+- Follower-to-following ratio *(celebrities have high ratios)*  
+- Verification status *(verified = more credible)*  
+- Account age *(older = more trustworthy)*  
+- Number of times listed *(expert recognition)*  
+- Profile completeness *(URL, bio, etc.)*
 
-Who: User profiles, follower networks, account age
+### **Tweet (Content-Based) Features**
+- Tweet length and word count  
+- Presence of question/exclamation marks  
+- Emoticon usage (😊/😢)  
+- URL presence and reputation *(WOT scores)*  
+- Swear words and sentiment (positive/negative emotion)  
+- YouTube video like/dislike ratios for linked videos  
 
-When: Temporal patterns, posting timelines
+---
 
-Where: Geographic data from geo-tagged tweets (1% of tweets have
-location data)​
+## 🤖 Machine Learning Results
 
-What: Content analysis, sentiment, URLs
+**Classification Techniques:**
+- **Naive Bayes:** Probability-based  
+- **Decision Trees:** Graph-based  
 
-Why/How: Harder to determine but inferable from patterns
+**Evaluation:** Five-fold cross-validation  
 
-Feature Engineering: The Foundation User Features (Profile-Based) Number
-of followers and friends
+**Accuracy:** **97.65%** (when combining tweet + user features)  
 
-Follower-to-following ratio (critical indicator: celebrities have high
-ratios)​
+**Findings:**
+- Tweet features alone > user features alone  
+- Combination of both → best performance  
 
-Verification status (verified accounts are more credible)​
+---
 
-Account age (older accounts more trustworthy)​
+## 🔝 Top 10 Most Influential Features
 
-Number of times listed (indicates expert recognition)​
+1. Number of characters in tweet  
+2. Unique characters in tweet  
+3. Number of words  
+4. User has location in profile  
+5. Number of retweets  
+6. Age of tweet  
+7. Tweet contains URL  
+8. Tweet source (device used)  
+9. User’s status count  
+10. Followers-to-friends relationship  
 
-Profile completeness (has URL, bio, etc.)​
+---
 
-Tweet Features (Content-Based) Tweet length and word count
+## 🧑‍🏫 Human Annotation Process
 
-Presence of question/exclamation marks
+**Two-Step Annotation:**
+1. Check if the tweet is event-related  
+2. Rate credibility:  
+   - Definitely credible  
+   - Seems credible  
+   - Definitely not credible  
+   - Can’t decide  
 
-Emoticon usage (happy/sad)
+**Quality Control:**
+- Each tweet annotated by ≥3 people  
+- **Cronbach’s Alpha > 0.7** ensures inter-annotator agreement  
 
-URL presence and reputation (WOT scores)​
+**Results:**
+- 30% credible  
+- 70% non-credible  
+- 14% uncertain  
 
-Swear words and sentiment (positive/negative emotion words)​
+---
 
-YouTube video like/dislike ratios for linked videos​
+## 🌐 Network Analysis Insights
 
-Machine Learning Results Classification Performance Using Five-fold
-cross-validation with two algorithms:​
+- **Diffusion Patterns:** Single-user vs. multi-user cascades  
+- **Observation:** Content spreads fast even if original user isn’t influential  
+- **Fake Content Networks:** Closed, dense communities (mutual follows/retweets)  
 
-Naive Bayes: Based on probability theory
+---
 
-Decision Trees: Graph-based classification
+## 🧩 Practical Application: TweetCred Chrome Extension
 
-Accuracy Achievement: 97.65% when combining tweet + user features​
+**Purpose:** Real-time credibility scoring for tweets  
 
-Key Finding: Tweet features alone performed better than user features
-alone, but the combination yielded the best results.​
+**Features:**
+- Displays credibility score (1–7 scale)  
+- Works on Twitter timelines, searches, and profiles  
+- Uses 45 features (optimized subset for speed)  
+- Allows user feedback (“I agree” / “This should be more credible”)  
 
-Top 10 Most Influential Features The lecture identifies the most
-powerful predictors of credibility:​
+**Implementation:**
+- Real-time display integrated with Twitter interface  
+- Feedback loop to improve model accuracy  
 
-Number of characters in tweet
+---
 
-Unique characters in tweet
+## 🧠 Key Takeaways for Practitioners
 
-Number of words
+- **Speed Matters:** Misinformation spreads **4–5x faster** than truth  
+- **Feature Combination:** Both content + profile features needed  
+- **Temporal Patterns:** Tweet spikes align with real-world events  
+- **Device Insight:**  
+  - 76% of fake content → posted via **mobile**  
+  - 64% of true content → via mobile  
+- **Account Patterns:** Suspicious accounts often created right before/after major events  
 
-User has location in profile
+---
 
-Number of retweets
+## 🎯 Summary
 
-Age of tweet
+This lecture provided **both theoretical foundations and practical tools** for identifying misinformation on social media.  
+Applications include **crisis management**, **journalism**, and **digital literacy**.
 
-Tweet contains URL
-
-Tweet source (posting device)
-
-User’s status count
-
-Followers-friends relationship
-
-Human Annotation Process A rigorous two-step annotation methodology was
-implemented:​
-
-Step 1: Annotators decide if tweet contains event-related information
-
-Step 2: If yes, rate credibility as “definitely credible,” “seems
-credible,” “definitely not credible,” or “can’t decide”
-
-Quality Control: Each tweet annotated by at least 3 people; Cronbach’s
-Alpha (inter-annotator agreement) should be >0.7 for confident results.​
-
-Results from annotation: 30% tweets had credible information, 70%
-non-credible, 14% uncertain.​
-
-Network Analysis Insights Visual network graphs revealed critical
-patterns:​
-
-Single-user diffusion vs. multi-user cascades
-
-Content can spread rapidly even when original poster is not influential
-
-Fake content networks show closed community structure (accounts follow
-and retweet each other)​
-
-Practical Application: TweetCred Chrome Extension A real-time
-credibility assessment tool was developed and demonstrated:​
-
-Features Provides credibility scores on a 1-7 scale for every tweet in
-timelines, searches, and profiles​
-
-Uses 45 features for real-time analysis (subset of research features for
-speed)​
-
-Feedback loop: Users can agree/disagree with scores to improve the model​
-
-Implementation Works across Twitter interface showing immediate
-credibility ratings, with options for users to provide feedback like “I
-agree” or “No, this should be more credible”.​
-
-Key Takeaways for Practitioners Speed Matters: Misinformation spreads
-4-5x faster than truth during crisis events​
-
-Feature Combination: Both content and profile features necessary for
-accurate prediction​
-
-Temporal Patterns: Tweet spikes on social media directly correlate with
-real-world events​
-
-Device Analysis: 76% of fake content posted via mobile vs. 64% true
-content​
-
-Account Patterns: Suspicious accounts often created immediately
-before/after major events​
-
-This lecture provides both theoretical foundations and practical tools
-for identifying misinformation on social media platforms, with direct
-applications in crisis management, journalism, and digital literacy.
+---
